@@ -13,9 +13,9 @@ class Post(models.Model):   #tabulka s příspěvky v řádcích, ve sloupci bud
     published_date = models.DateTimeField(
             blank=True, null=True)  #null říká, že políčko může být prázdné - příspěvek jsem ještě nepublikoval a neukáže se na stránce
 
-def publish(self):      #metoda umožňující pracovat s argumenty třídy. self zavolá právě ten, na kterém pracuji
-        self.published_date = timezone.now()    #aby se post publikoval, publish date nebude prázdný ale bude mít aktuální datum timezone.now
-        self.save() #ulož to do databáze; metoda save se dědí z modelu (je už připravená)
+    def publish(self):      #metoda umožňující pracovat s argumenty třídy. self zavolá právě ten, na kterém pracuji
+            self.published_date = timezone.now()    #aby se post publikoval, publish date nebude prázdný ale bude mít aktuální datum timezone.now
+            self.save() #ulož to do databáze; metoda save se dědí z modelu (je už připravená)
 
-def __str__(self):  #speciální metoda s podtržítky, říká, jak se bude příspěvek převádět na řetězec - jednoduše vypíše titulek
-        return self.title
+    def __str__(self):  #speciální metoda s podtržítky, říká, jak se bude příspěvek převádět na řetězec - jednoduše vypíše titulek
+            return self.title
